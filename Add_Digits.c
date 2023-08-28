@@ -1,22 +1,27 @@
 #include<stdio.h>
-int sum(int n)
+#include<math.h>
+void fun(int n)
 {
-    int r,s=0;
+    int s=0,r,m;
     while(n!=0)
     {
         r=n%10;
         n=n/10;
         s=s+r;
     }
-    return s;
+    m=log10(s)+1;
+    if(m==1)
+    {
+        printf("%d",s);
+    }
+    else
+    {
+      fun(s);
+    }
 }
 int main()
 {
     int n;
     scanf("%d",&n);
-    while(n>10)
-    {
-    n=sum(n);
-    }
-     printf("%d",n);
+    fun(n);
 }
